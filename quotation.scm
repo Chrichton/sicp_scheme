@@ -1,20 +1,20 @@
-(list `a `b 3)
+(list 'a 'b 3)
 
-`(a b c)
+'(a b c)
 
 (quote (a b c))
 
-(list `quote `(a b c))
+(list 'quote '(a b c))
 
-(list `car (list `quote `(a b c)))
+(list 'car (list 'quote '(a b c)))
 
 ;empty list:
-`()
+'()
 
 ()
 
 ; eq? can be used to decide if two smbols are the same
-(eq? `1 `1)
+(eq? '1 '1)
 
 ; decide, if a symbol 'item' is inside a list 'lst'
 (define (memq item lst)
@@ -25,17 +25,17 @@
   )
 )
 
-(memq `a `())
+(memq 'a '())
 
-(memq `a `(a b c))
+(memq 'a '(a b c))
 
-(memq `b `(a b c))
+(memq 'b '(a b c))
 
-(memq `(a b c) `d)
+(memq 'd' (a b c))
 
-(memq `(a b c) `())
+(memq '() '(a b c))
 
-(memq `() `())
+(memq '() '())
 
 (memq 2 (list 1 2 3))
 
