@@ -16,20 +16,20 @@
 ; eq? can be used to decide if two smbols are the same
 (eq? `1 `1)
 
-; decide, if a symbol 'x' is inside a list 'lst'
-(define (memq lst x)
+; decide, if a symbol 'item' is inside a list 'lst'
+(define (memq item lst)
   (cond 
-    ((eq? lst `()) false)
-    ((eq? (car lst) x) lst)
-    (else (memq (cdr lst) x))
+    ((null? lst) false)
+    ((eq? (car lst) item) lst)
+    (else (memq item (cdr lst)))
   )
 )
 
-(memq `() `a)
+(memq `a `())
 
-(memq `(a b c) `a)
+(memq `a `(a b c))
 
-(memq `(a b c) `b)
+(memq `b `(a b c))
 
 (memq `(a b c) `d)
 
@@ -37,5 +37,5 @@
 
 (memq `() `())
 
-(memq (list 1 2 3) 2)
+(memq 2 (list 1 2 3))
 
