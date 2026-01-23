@@ -8,3 +8,5 @@
 (define (cdr x) (x 2))
 
 ((cons 10 20) 2)
+
+(cdr (cons 10 20))
