@@ -12,6 +12,8 @@ my-tree
 
 (no-of-leafs my-tree)
 
+
+; map function for a tree
 (define (scale-tree tree factor)
   (cond 
     ((null? tree) '())
