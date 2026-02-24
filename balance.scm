@@ -11,7 +11,7 @@
 
 ;-------------------------------------------------------
 
-(define new-withdraw
+(define (new-withdraw)
   (let ((balance 100))
     (lambda (amount) 
       (if (>= balance amount) 
@@ -22,10 +22,10 @@
   )
 )
 
-; doesn't work, because 
-; (define withdraw (new-withdraw))
+(define withdraw (new-withdraw))
 
-; (withdraw 1200)
+(withdraw 75)
+(withdraw 1200)
 
 ;-------------------------------------------------------
 
