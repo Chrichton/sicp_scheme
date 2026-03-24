@@ -1,0 +1,25 @@
+(define random-init 1)
+(define random-max #x7fffffff)
+(define (rand-update x0)
+  (let* ((x1 (fxxor x0 (fxarithmetic-shift-right x0 13)))
+         (x2 (fxxor x1 (fxarithmetic-shift-left x1 18))))
+    (fxand x2 random-max)))
+
+(define rand
+  (let ((x random-init))
+    (lambda (message)
+      (cond ((eq? message 'generate)
+             (set! x (rand-update x))
+             x)
+            ((eq? message 'reset)
+             (lambda (new-x)
+               (set! x new-x) message))
+            (else (error 'rand "message not recognized" message))))))
+
+(rand 'generate)
+(rand 'generate)
+(rand 'generate)
+
+((rand 'reset) 5000000)
+(rand 'generate)
+(rand 'generate)
